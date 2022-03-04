@@ -47,11 +47,11 @@ void Transportation<T>::solve()
 {
 	if (sumA != sumB)
 	{
-		if (full) std::cout << std::endl << "Задача открытая, так как условие баланса нарушено" << std::endl;
+		if (full) std::cout << std::endl << "Р—Р°РґР°С‡Р° РѕС‚РєСЂС‹С‚Р°СЏ, С‚Р°Рє РєР°Рє СѓСЃР»РѕРІРёРµ Р±Р°Р»Р°РЅСЃР° РЅР°СЂСѓС€РµРЅРѕ" << std::endl;
 		if (sumA > sumB)
 		{
-			if (full) std::cout << "Cуммарный объем производства sumA = " << sumA << ", а суммарный объем потребления sumB = " << sumB << std::endl;
-			if (full) std::cout << "Чтобы получить закрытую модель, добавляем фиктивный пункт потребления B(j+1) с объемом потребления = " << (sumA - sumB) << std::endl;
+			if (full) std::cout << "CСѓРјРјР°СЂРЅС‹Р№ РѕР±СЉРµРј РїСЂРѕРёР·РІРѕРґСЃС‚РІР° sumA = " << sumA << ", Р° СЃСѓРјРјР°СЂРЅС‹Р№ РѕР±СЉРµРј РїРѕС‚СЂРµР±Р»РµРЅРёСЏ sumB = " << sumB << std::endl;
+			if (full) std::cout << "Р§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ Р·Р°РєСЂС‹С‚СѓСЋ РјРѕРґРµР»СЊ, РґРѕР±Р°РІР»СЏРµРј С„РёРєС‚РёРІРЅС‹Р№ РїСѓРЅРєС‚ РїРѕС‚СЂРµР±Р»РµРЅРёСЏ B(j+1) СЃ РѕР±СЉРµРјРѕРј РїРѕС‚СЂРµР±Р»РµРЅРёСЏ = " << (sumA - sumB) << std::endl;
 			B.push_back(sumA - sumB);
 			for (int i = 0; i < amountA; i++)
 			{
@@ -61,8 +61,8 @@ void Transportation<T>::solve()
 		}
 		else
 		{
-			if (full) std::cout << "Cуммарный объем производства sumA = " << sumA << ", а суммарный объем потребления sumB = " << sumB << std::endl;
-			if (full) std::cout << "Чтобы получить закрытую модель, добавляем фиктивный пункт производства A(i+1) с объемом производства = " << (sumB - sumA) << std::endl;
+			if (full) std::cout << "CСѓРјРјР°СЂРЅС‹Р№ РѕР±СЉРµРј РїСЂРѕРёР·РІРѕРґСЃС‚РІР° sumA = " << sumA << ", Р° СЃСѓРјРјР°СЂРЅС‹Р№ РѕР±СЉРµРј РїРѕС‚СЂРµР±Р»РµРЅРёСЏ sumB = " << sumB << std::endl;
+			if (full) std::cout << "Р§С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ Р·Р°РєСЂС‹С‚СѓСЋ РјРѕРґРµР»СЊ, РґРѕР±Р°РІР»СЏРµРј С„РёРєС‚РёРІРЅС‹Р№ РїСѓРЅРєС‚ РїСЂРѕРёР·РІРѕРґСЃС‚РІР° A(i+1) СЃ РѕР±СЉРµРјРѕРј РїСЂРѕРёР·РІРѕРґСЃС‚РІР° = " << (sumB - sumA) << std::endl;
 			A.push_back(sumB - sumA);
 			std::vector<T> c_newB(amountB, 0);
 			C.push_back(c_newB);
@@ -71,12 +71,12 @@ void Transportation<T>::solve()
 	}
 	else
 	{
-		if (full) std::cout << std::endl << "Задача закрытая, условие баланса выполняется, так как суммарные объемы производства и потребления равны (=" << sumA << ")" << std::endl;
+		if (full) std::cout << std::endl << "Р—Р°РґР°С‡Р° Р·Р°РєСЂС‹С‚Р°СЏ, СѓСЃР»РѕРІРёРµ Р±Р°Р»Р°РЅСЃР° РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ, С‚Р°Рє РєР°Рє СЃСѓРјРјР°СЂРЅС‹Рµ РѕР±СЉРµРјС‹ РїСЂРѕРёР·РІРѕРґСЃС‚РІР° Рё РїРѕС‚СЂРµР±Р»РµРЅРёСЏ СЂР°РІРЅС‹ (=" << sumA << ")" << std::endl;
 	}
 
 	if (full)
 	{
-		std::cout << std::endl << "Текущая таблица:" << std::endl;
+		std::cout << std::endl << "РўРµРєСѓС‰Р°СЏ С‚Р°Р±Р»РёС†Р°:" << std::endl;
 		std::cout << "A: ";
 		for (int i = 0; i < A.size(); i++)
 		{
@@ -89,7 +89,7 @@ void Transportation<T>::solve()
 			std::cout << B.at(i) << "  ";
 		}
 
-		std::cout << std::endl << "Матрица транспортных издержек (С):" << std::endl;
+		std::cout << std::endl << "РњР°С‚СЂРёС†Р° С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… РёР·РґРµСЂР¶РµРє (РЎ):" << std::endl;
 		for (int i = 0; i < C.size(); i++)
 		{
 			for (int j = 0; j < C[i].size(); j++)
@@ -101,14 +101,14 @@ void Transportation<T>::solve()
 		std::cout << std::endl;
 	};
 
-	minElement();												//начальный опорный план
+	minElement();												//РЅР°С‡Р°Р»СЊРЅС‹Р№ РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ
 	if (full)
 	{
 		for (int i = 0; i < basisPerem_e.size(); i++)
 		{
 			L += basisPerem_e[i].first * C[basisPerem_e[i].second.first][basisPerem_e[i].second.second];
 		}
-		std::cout << std::endl << "Значение целевой функции для этого опорного плана: L = " << L << std::endl;
+		std::cout << std::endl << "Р—РЅР°С‡РµРЅРёРµ С†РµР»РµРІРѕР№ С„СѓРЅРєС†РёРё РґР»СЏ СЌС‚РѕРіРѕ РѕРїРѕСЂРЅРѕРіРѕ РїР»Р°РЅР°: L = " << L << std::endl;
 	};
 
 	optPlan = potentialMethod();
@@ -122,28 +122,28 @@ void Transportation<T>::solve()
 	}
 
 	L = 0;
-	if (full) std::cout << std::endl << std::endl << "Полученный опорный план является оптимальным, так как для всех клеток выполняется условие `ai + `bj = cij" << std::endl;
+	if (full) std::cout << std::endl << std::endl << "РџРѕР»СѓС‡РµРЅРЅС‹Р№ РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ СЏРІР»СЏРµС‚СЃСЏ РѕРїС‚РёРјР°Р»СЊРЅС‹Рј, С‚Р°Рє РєР°Рє РґР»СЏ РІСЃРµС… РєР»РµС‚РѕРє РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ СѓСЃР»РѕРІРёРµ `ai + `bj = cij" << std::endl;
 	for (int i = 0; i < basisPerem_e.size(); i++)
 	{
 		L += basisPerem_e[i].first * C[basisPerem_e[i].second.first][basisPerem_e[i].second.second];
 	}
-	std::cout << std::endl << "Минимальные затраты составят: L = " << L << std::endl;
+	std::cout << std::endl << "РњРёРЅРёРјР°Р»СЊРЅС‹Рµ Р·Р°С‚СЂР°С‚С‹ СЃРѕСЃС‚Р°РІСЏС‚: L = " << L << std::endl;
 
 	if (!full)
 	{
-		std::cout << std::endl << "Оптимальный план перевозок:" << std::endl;
+		std::cout << std::endl << "РћРїС‚РёРјР°Р»СЊРЅС‹Р№ РїР»Р°РЅ РїРµСЂРµРІРѕР·РѕРє:" << std::endl;
 		for (int i = 0; i < C.size(); i++)
 		{
-			std::cout << "Из " << i + 1 << "-го пункта производства необходимо продукт направить в ";
+			std::cout << "РР· " << i + 1 << "-РіРѕ РїСѓРЅРєС‚Р° РїСЂРѕРёР·РІРѕРґСЃС‚РІР° РЅРµРѕР±С…РѕРґРёРјРѕ РїСЂРѕРґСѓРєС‚ РЅР°РїСЂР°РІРёС‚СЊ РІ ";
 			for (int j = 0; j < basisPerem_e.size(); j++)
 			{
-				if (basisPerem_e[j].second.first == i && C[basisPerem_e[j].second.first][basisPerem_e[j].second.second] != 0) std::cout << basisPerem_e[j].second.second + 1 << "-й пункт потребления (" << basisPerem_e[j].first << " единиц), ";
+				if (basisPerem_e[j].second.first == i && C[basisPerem_e[j].second.first][basisPerem_e[j].second.second] != 0) std::cout << basisPerem_e[j].second.second + 1 << "-Р№ РїСѓРЅРєС‚ РїРѕС‚СЂРµР±Р»РµРЅРёСЏ (" << basisPerem_e[j].first << " РµРґРёРЅРёС†), ";
 			}
 			std::cout << std::endl;
 		}
 		for (int j = 0; j < basisPerem_e.size(); j++)
 		{
-			if (C[basisPerem_e[j].second.first][basisPerem_e[j].second.second] == 0) std::cout << "На " << basisPerem_e[j].second.first + 1 << "-ом складе остался невостребованным продукт в количестве " << basisPerem_e[j].first << " единиц." << std::endl;
+			if (C[basisPerem_e[j].second.first][basisPerem_e[j].second.second] == 0) std::cout << "РќР° " << basisPerem_e[j].second.first + 1 << "-РѕРј СЃРєР»Р°РґРµ РѕСЃС‚Р°Р»СЃСЏ РЅРµРІРѕСЃС‚СЂРµР±РѕРІР°РЅРЅС‹Рј РїСЂРѕРґСѓРєС‚ РІ РєРѕР»РёС‡РµСЃС‚РІРµ " << basisPerem_e[j].first << " РµРґРёРЅРёС†." << std::endl;
 		}
 	}
 }
@@ -153,16 +153,16 @@ bool Transportation<T>::potentialMethod()
 {
 	int sizeA = C.size();
 	int sizeB = C[0].size();
-	std::vector<std::pair<int, bool>> alpha, beta;		//векторы потенциалов с их значениями и посчитаны ли они
+	std::vector<std::pair<int, bool>> alpha, beta;		//РІРµРєС‚РѕСЂС‹ РїРѕС‚РµРЅС†РёР°Р»РѕРІ СЃ РёС… Р·РЅР°С‡РµРЅРёСЏРјРё Рё РїРѕСЃС‡РёС‚Р°РЅС‹ Р»Рё РѕРЅРё
 	int count = sizeA + sizeB - 1;
 
 	alpha.resize(sizeA);
 	beta.resize(sizeB);
 	alpha[0].second = true;								//a1=0
 
-	if (full) std::cout << std::endl << "Проверим оптимальность опорного плана. Найдем предварительные потенциалы `Ai и `Bj по занятым клеткам таблицы, в которых `Ai+`Bj=Cij, полагая, что `A1=0" << std::endl;
+	if (full) std::cout << std::endl << "РџСЂРѕРІРµСЂРёРј РѕРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РѕРїРѕСЂРЅРѕРіРѕ РїР»Р°РЅР°. РќР°Р№РґРµРј РїСЂРµРґРІР°СЂРёС‚РµР»СЊРЅС‹Рµ РїРѕС‚РµРЅС†РёР°Р»С‹ `Ai Рё `Bj РїРѕ Р·Р°РЅСЏС‚С‹Рј РєР»РµС‚РєР°Рј С‚Р°Р±Р»РёС†С‹, РІ РєРѕС‚РѕСЂС‹С… `Ai+`Bj=Cij, РїРѕР»Р°РіР°СЏ, С‡С‚Рѕ `A1=0" << std::endl;
 
-	int max_iter = count;	//если вырожденность на этапе вычисл-я знач-й потенциалов -> решить ее
+	int max_iter = count;	//РµСЃР»Рё РІС‹СЂРѕР¶РґРµРЅРЅРѕСЃС‚СЊ РЅР° СЌС‚Р°РїРµ РІС‹С‡РёСЃР»-СЏ Р·РЅР°С‡-Р№ РїРѕС‚РµРЅС†РёР°Р»РѕРІ -> СЂРµС€РёС‚СЊ РµРµ
 	while (count != 0)
 	{
 		for (int i = 0; i < basisPerem_e.size(); i++)
@@ -187,17 +187,17 @@ bool Transportation<T>::potentialMethod()
 			}
 		}
 
-		//для проверки на вырожденность решения
+		//РґР»СЏ РїСЂРѕРІРµСЂРєРё РЅР° РІС‹СЂРѕР¶РґРµРЅРЅРѕСЃС‚СЊ СЂРµС€РµРЅРёСЏ
 		max_iter--;
 		if (max_iter == 0)
 		{
 			if (full)
 			{
-				std::cout << "На данном этапе возникла ситуация, когда для оставшихся занятых клеток не известно ни одного из потенциалов.";
-				std::cout << "Это результат вырожденности решения. Для его преодоления в одну из клеток нужно внести нулевую поставку, таким образом, такая клетка станет условно занятой.";
+				std::cout << "РќР° РґР°РЅРЅРѕРј СЌС‚Р°РїРµ РІРѕР·РЅРёРєР»Р° СЃРёС‚СѓР°С†РёСЏ, РєРѕРіРґР° РґР»СЏ РѕСЃС‚Р°РІС€РёС…СЃСЏ Р·Р°РЅСЏС‚С‹С… РєР»РµС‚РѕРє РЅРµ РёР·РІРµСЃС‚РЅРѕ РЅРё РѕРґРЅРѕРіРѕ РёР· РїРѕС‚РµРЅС†РёР°Р»РѕРІ.";
+				std::cout << "Р­С‚Рѕ СЂРµР·СѓР»СЊС‚Р°С‚ РІС‹СЂРѕР¶РґРµРЅРЅРѕСЃС‚Рё СЂРµС€РµРЅРёСЏ. Р”Р»СЏ РµРіРѕ РїСЂРµРѕРґРѕР»РµРЅРёСЏ РІ РѕРґРЅСѓ РёР· РєР»РµС‚РѕРє РЅСѓР¶РЅРѕ РІРЅРµСЃС‚Рё РЅСѓР»РµРІСѓСЋ РїРѕСЃС‚Р°РІРєСѓ, С‚Р°РєРёРј РѕР±СЂР°Р·РѕРј, С‚Р°РєР°СЏ РєР»РµС‚РєР° СЃС‚Р°РЅРµС‚ СѓСЃР»РѕРІРЅРѕ Р·Р°РЅСЏС‚РѕР№.";
 			}
 
-			//выбираем из тех строк/столбцов, у которых есть потенциалы, клетку с наименьшей стоимостью в матрице С
+			//РІС‹Р±РёСЂР°РµРј РёР· С‚РµС… СЃС‚СЂРѕРє/СЃС‚РѕР»Р±С†РѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РµСЃС‚СЊ РїРѕС‚РµРЅС†РёР°Р»С‹, РєР»РµС‚РєСѓ СЃ РЅР°РёРјРµРЅСЊС€РµР№ СЃС‚РѕРёРјРѕСЃС‚СЊСЋ РІ РјР°С‚СЂРёС†Рµ РЎ
 			int min_cost = C[0][0];
 			int temp_i, temp_j;
 			for (int i = 0; i < alpha.size(); i++)
@@ -237,14 +237,14 @@ bool Transportation<T>::potentialMethod()
 
 			if (full)
 			{
-				std::cout << std::endl << "Среди клеток, в которых может быть размещена нулевая поставка, наименьший тариф имеет клетка " << min_cost << " (" << temp_i + 1 << ", " << temp_j + 1 << "). В ней размещаем нулевую поставку и она становится условно занятой.";
+				std::cout << std::endl << "РЎСЂРµРґРё РєР»РµС‚РѕРє, РІ РєРѕС‚РѕСЂС‹С… РјРѕР¶РµС‚ Р±С‹С‚СЊ СЂР°Р·РјРµС‰РµРЅР° РЅСѓР»РµРІР°СЏ РїРѕСЃС‚Р°РІРєР°, РЅР°РёРјРµРЅСЊС€РёР№ С‚Р°СЂРёС„ РёРјРµРµС‚ РєР»РµС‚РєР° " << min_cost << " (" << temp_i + 1 << ", " << temp_j + 1 << "). Р’ РЅРµР№ СЂР°Р·РјРµС‰Р°РµРј РЅСѓР»РµРІСѓСЋ РїРѕСЃС‚Р°РІРєСѓ Рё РѕРЅР° СЃС‚Р°РЅРѕРІРёС‚СЃСЏ СѓСЃР»РѕРІРЅРѕ Р·Р°РЅСЏС‚РѕР№.";
 			}
 
 			for (int i = 0; i < basisPerem_e.size(); i++)
 			{
 				if (basisPerem_e[i].first == 0)
 				{
-					if (full) std::cout << std::endl << "Ранее поставленный псевдоноль в ячейке (" << basisPerem_e[i].second.first + 1 << ", " << basisPerem_e[i].second.second + 1 << ") убираем." << std::endl;
+					if (full) std::cout << std::endl << "Р Р°РЅРµРµ РїРѕСЃС‚Р°РІР»РµРЅРЅС‹Р№ РїСЃРµРІРґРѕРЅРѕР»СЊ РІ СЏС‡РµР№РєРµ (" << basisPerem_e[i].second.first + 1 << ", " << basisPerem_e[i].second.second + 1 << ") СѓР±РёСЂР°РµРј." << std::endl;
 					basisPerem_e.erase(basisPerem_e.begin() + i);
 				}
 			}
@@ -253,7 +253,7 @@ bool Transportation<T>::potentialMethod()
 		}
 	}
 
-	//вывод потенциалов:
+	//РІС‹РІРѕРґ РїРѕС‚РµРЅС†РёР°Р»РѕРІ:
 	if (full)
 	{
 		std::cout << std::endl << "`a: ";
@@ -263,7 +263,7 @@ bool Transportation<T>::potentialMethod()
 
 	}
 
-	bool flag = true;		//оптимальность плана
+	bool flag = true;		//РѕРїС‚РёРјР°Р»СЊРЅРѕСЃС‚СЊ РїР»Р°РЅР°
 	for (int i = 0; i < sizeA; i++)
 		for (int j = 0; j < sizeB; j++)
 		{
@@ -280,9 +280,9 @@ bool Transportation<T>::potentialMethod()
 	{
 		L += basisPerem_e[i].first * C[basisPerem_e[i].second.first][basisPerem_e[i].second.second];
 	}
-	if (full) std::cout << std::endl << "Минимальные затраты составят: L = " << L << std::endl;
+	if (full) std::cout << std::endl << "РњРёРЅРёРјР°Р»СЊРЅС‹Рµ Р·Р°С‚СЂР°С‚С‹ СЃРѕСЃС‚Р°РІСЏС‚: L = " << L << std::endl;
 
-	if (!badC.empty() && full) std::cout << std::endl << "Опорный план не оптимален, так как существуют клетки, для которых `ai + `bj > cij" << std::endl;
+	if (!badC.empty() && full) std::cout << std::endl << "РћРїРѕСЂРЅС‹Р№ РїР»Р°РЅ РЅРµ РѕРїС‚РёРјР°Р»РµРЅ, С‚Р°Рє РєР°Рє СЃСѓС‰РµСЃС‚РІСѓСЋС‚ РєР»РµС‚РєРё, РґР»СЏ РєРѕС‚РѕСЂС‹С… `ai + `bj > cij" << std::endl;
 
 	return flag;
 }
@@ -290,24 +290,24 @@ bool Transportation<T>::potentialMethod()
 template <typename T>
 void Transportation<T>::minElement()
 {
-	if (full) std::cout << "Поиск начального опорного плана с помощью метода минимального элемента." << std::endl;
-	if (full) std::cout << "Суть метода в том, что из таблицы стоимостей С выбирается наименьшая, и в клетку, соответствующую ей, помещается меньшее из ai и bj" << std::endl;
+	if (full) std::cout << "РџРѕРёСЃРє РЅР°С‡Р°Р»СЊРЅРѕРіРѕ РѕРїРѕСЂРЅРѕРіРѕ РїР»Р°РЅР° СЃ РїРѕРјРѕС‰СЊСЋ РјРµС‚РѕРґР° РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°." << std::endl;
+	if (full) std::cout << "РЎСѓС‚СЊ РјРµС‚РѕРґР° РІ С‚РѕРј, С‡С‚Рѕ РёР· С‚Р°Р±Р»РёС†С‹ СЃС‚РѕРёРјРѕСЃС‚РµР№ РЎ РІС‹Р±РёСЂР°РµС‚СЃСЏ РЅР°РёРјРµРЅСЊС€Р°СЏ, Рё РІ РєР»РµС‚РєСѓ, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰СѓСЋ РµР№, РїРѕРјРµС‰Р°РµС‚СЃСЏ РјРµРЅСЊС€РµРµ РёР· ai Рё bj" << std::endl;
 
-	T minCost, maxCost, cost;						//cost - псевдостоимость текущей клетки C~
+	T minCost, maxCost, cost;						//cost - РїСЃРµРІРґРѕСЃС‚РѕРёРјРѕСЃС‚СЊ С‚РµРєСѓС‰РµР№ РєР»РµС‚РєРё C~
 	std::pair<int, int> minPosition;
 	bool flagA = true;
-	bool flagB = true;								//флаги, что исчерпаны ресурсы до нуля
+	bool flagB = true;								//С„Р»Р°РіРё, С‡С‚Рѕ РёСЃС‡РµСЂРїР°РЅС‹ СЂРµСЃСѓСЂСЃС‹ РґРѕ РЅСѓР»СЏ
 
-	if (addedC.first == true)						//добавили пункт А
+	if (addedC.first == true)						//РґРѕР±Р°РІРёР»Рё РїСѓРЅРєС‚ Рђ
 	{
 		minCost = C[0][0];
 		maxCost = C[0][0];
-		for (int k = 0; k < (A.size() + B.size() - 1); k++) //кол-во итераций = нужное кол-во базисных клеток
+		for (int k = 0; k < (A.size() + B.size() - 1); k++) //РєРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№ = РЅСѓР¶РЅРѕРµ РєРѕР»-РІРѕ Р±Р°Р·РёСЃРЅС‹С… РєР»РµС‚РѕРє
 		{
 			for (int i = 0; i < A.size(); i++) if (A[i] != 0) flagA = false;
 			for (int j = 0; j < B.size(); j++) if (B[j] != 0) flagB = false;
 
-			if (flagA && flagB)		//все ресурсы исчерпаны, план вырожден
+			if (flagA && flagB)		//РІСЃРµ СЂРµСЃСѓСЂСЃС‹ РёСЃС‡РµСЂРїР°РЅС‹, РїР»Р°РЅ РІС‹СЂРѕР¶РґРµРЅ
 			{
 				for (int i = 0; i < A.size() - 1; i++)
 				{
@@ -328,9 +328,9 @@ void Transportation<T>::minElement()
 				cost = 0;
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
 
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 				continue;
 			}
 
@@ -340,7 +340,7 @@ void Transportation<T>::minElement()
 				if (A[a] != 0) flag = false;
 			}
 
-			if (flag && !flagB)		//если все реальные А исчерпаны, а В не исчерпаны
+			if (flag && !flagB)		//РµСЃР»Рё РІСЃРµ СЂРµР°Р»СЊРЅС‹Рµ Рђ РёСЃС‡РµСЂРїР°РЅС‹, Р° Р’ РЅРµ РёСЃС‡РµСЂРїР°РЅС‹
 			{
 				for (int j = 0; j < B.size(); j++)
 				{
@@ -359,15 +359,15 @@ void Transportation<T>::minElement()
 					}
 				}
 
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 			}
-			else			//если реал А и В неисчерпаны
+			else			//РµСЃР»Рё СЂРµР°Р» Рђ Рё Р’ РЅРµРёСЃС‡РµСЂРїР°РЅС‹
 			{
 				for (int i = 0; i < A.size() - 1; i++)
 				{
@@ -388,24 +388,24 @@ void Transportation<T>::minElement()
 						}
 					}
 				}
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 			}
 			flagA = true;
 			flagB = true;
 		}
 	}
 
-	else if (addedC.second == true)					// добавили пункт В
+	else if (addedC.second == true)					// РґРѕР±Р°РІРёР»Рё РїСѓРЅРєС‚ Р’
 	{
 		minCost = C[0][0];
 		maxCost = C[0][0];
-		for (int k = 0; k < (A.size() + B.size() - 1); k++) //кол-во итераций = нужное кол-во базисных клеток
+		for (int k = 0; k < (A.size() + B.size() - 1); k++) //РєРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№ = РЅСѓР¶РЅРѕРµ РєРѕР»-РІРѕ Р±Р°Р·РёСЃРЅС‹С… РєР»РµС‚РѕРє
 		{
 			for (int i = 0; i < A.size(); i++) if (A[i] != 0) flagA = false;
 			for (int j = 0; j < B.size(); j++) if (B[j] != 0) flagB = false;
@@ -427,13 +427,13 @@ void Transportation<T>::minElement()
 						}
 					}
 				}
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 				continue;
 			}
 
@@ -462,13 +462,13 @@ void Transportation<T>::minElement()
 					}
 				}
 
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 			}
 			else
 			{
@@ -491,24 +491,24 @@ void Transportation<T>::minElement()
 						}
 					}
 				}
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 			}
 			flagA = true;
 			flagB = true;
 		}
 	}
 
-	else											// задача закрытая
+	else											// Р·Р°РґР°С‡Р° Р·Р°РєСЂС‹С‚Р°СЏ
 	{
 		minCost = C[0][0];
 		maxCost = C[0][0];
-		for (int k = 0; k < (A.size() + B.size() - 1); k++) //кол-во итераций = нужное кол-во базисных клеток
+		for (int k = 0; k < (A.size() + B.size() - 1); k++) //РєРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№ = РЅСѓР¶РЅРѕРµ РєРѕР»-РІРѕ Р±Р°Р·РёСЃРЅС‹С… РєР»РµС‚РѕРє
 		{
 			for (int i = 0; i < A.size(); i++) if (A[i] != 0) flagA = false;
 			for (int j = 0; j < B.size(); j++) if (B[j] != 0) flagB = false;
@@ -530,13 +530,13 @@ void Transportation<T>::minElement()
 						}
 					}
 				}
-				cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+				cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 				basisPerem_e.push_back(std::make_pair(cost, minPosition));
-				if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+				if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 				A[minPosition.first] = A[minPosition.first] - cost;
 				B[minPosition.second] = B[minPosition.second] - cost;
 				minCost = maxCost;
-				if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+				if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 				continue;
 			}
 
@@ -559,23 +559,23 @@ void Transportation<T>::minElement()
 					}
 				}
 			}
-			cost = std::min(A[minPosition.first], B[minPosition.second]);		//можно min заменить на:  !(b<a)?a:b
+			cost = std::min(A[minPosition.first], B[minPosition.second]);		//РјРѕР¶РЅРѕ min Р·Р°РјРµРЅРёС‚СЊ РЅР°:  !(b<a)?a:b
 			basisPerem_e.push_back(std::make_pair(cost, minPosition));
-			if (full) std::cout << "Искомый элемент: С(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), его запасы =" << A[minPosition.first] << ", потребности =" << B[minPosition.second] << std::endl;
+			if (full) std::cout << "РСЃРєРѕРјС‹Р№ СЌР»РµРјРµРЅС‚: РЎ(" << minPosition.first + 1 << ", " << minPosition.second + 1 << "), РµРіРѕ Р·Р°РїР°СЃС‹ =" << A[minPosition.first] << ", РїРѕС‚СЂРµР±РЅРѕСЃС‚Рё =" << B[minPosition.second] << std::endl;
 			A[minPosition.first] = A[minPosition.first] - cost;
 			B[minPosition.second] = B[minPosition.second] - cost;
 			minCost = maxCost;
-			if (full) std::cout << "Поскольку минимальным является " << cost << ", то вычитаем его" << std::endl << std::endl;
+			if (full) std::cout << "РџРѕСЃРєРѕР»СЊРєСѓ РјРёРЅРёРјР°Р»СЊРЅС‹Рј СЏРІР»СЏРµС‚СЃСЏ " << cost << ", С‚Рѕ РІС‹С‡РёС‚Р°РµРј РµРіРѕ" << std::endl << std::endl;
 			flagA = true;
 			flagB = true;
 		}
 	}
 
-	//вывод опорного плана
+	//РІС‹РІРѕРґ РѕРїРѕСЂРЅРѕРіРѕ РїР»Р°РЅР°
 	if (full)
 	{
 		bool printed = false;
-		std::cout << "Мы получили начальный опорный план: " << std::endl;
+		std::cout << "РњС‹ РїРѕР»СѓС‡РёР»Рё РЅР°С‡Р°Р»СЊРЅС‹Р№ РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ: " << std::endl;
 		for (int i = 0; i < C.size(); i++)
 		{
 			for (int j = 0; j < C[0].size(); j++)
@@ -598,12 +598,12 @@ void Transportation<T>::minElement()
 			std::cout << std::endl;
 		}
 
-		std::cout << std::endl << "Базисных переменных должно быть m+n-1=" << C.size() + C[0].size() - 1 << ", их " << basisPerem_e.size() << std::endl;
-		if ((C.size() + C[0].size() - 1) == basisPerem_e.size()) std::cout << "Следовательно, опорный план является невырожденным" << std::endl;
+		std::cout << std::endl << "Р‘Р°Р·РёСЃРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С… РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ m+n-1=" << C.size() + C[0].size() - 1 << ", РёС… " << basisPerem_e.size() << std::endl;
+		if ((C.size() + C[0].size() - 1) == basisPerem_e.size()) std::cout << "РЎР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ, РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ СЏРІР»СЏРµС‚СЃСЏ РЅРµРІС‹СЂРѕР¶РґРµРЅРЅС‹Рј" << std::endl;
 		else
 		{
-			std::cout << "Следовательно, опорный план является вырожденным" << std::endl;
-			//такого произойти не должно
+			std::cout << "РЎР»РµРґРѕРІР°С‚РµР»СЊРЅРѕ, РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ СЏРІР»СЏРµС‚СЃСЏ РІС‹СЂРѕР¶РґРµРЅРЅС‹Рј" << std::endl;
+			//С‚Р°РєРѕРіРѕ РїСЂРѕРёР·РѕР№С‚Рё РЅРµ РґРѕР»Р¶РЅРѕ
 		}
 	}
 }
@@ -623,19 +623,19 @@ void Transportation<T>::loopBuild()
 {
 	T tmpMaxMin;
 	std::pair<int, int> positionLoopBegin, positionFreeCell;
-	bool oddSign, looped;																//знак нечетности для чередования + и - в цикле: true=минус, false=плюс
-	std::vector<std::vector<int>> loopMap(C.size(), std::vector <int>(C[0].size()));	//в loopMap эл-ты: все нули, минус =-1, плюс =1
+	bool oddSign, looped;																//Р·РЅР°Рє РЅРµС‡РµС‚РЅРѕСЃС‚Рё РґР»СЏ С‡РµСЂРµРґРѕРІР°РЅРёСЏ + Рё - РІ С†РёРєР»Рµ: true=РјРёРЅСѓСЃ, false=РїР»СЋСЃ
+	std::vector<std::vector<int>> loopMap(C.size(), std::vector <int>(C[0].size()));	//РІ loopMap СЌР»-С‚С‹: РІСЃРµ РЅСѓР»Рё, РјРёРЅСѓСЃ =-1, РїР»СЋСЃ =1
 
 	tmpMaxMin = C[badC[0].first][badC[0].second];
 	positionLoopBegin = std::make_pair(badC[0].first, badC[0].second);
 
 	if (badC.capacity() == 1)
 	{
-		if (full) std::cout << "Данная клетка: " << tmpMaxMin << " (" << positionLoopBegin.first + 1 << ", " << positionLoopBegin.second + 1 << "). Строим цикл, начиная с нее" << std::endl;
+		if (full) std::cout << "Р”Р°РЅРЅР°СЏ РєР»РµС‚РєР°: " << tmpMaxMin << " (" << positionLoopBegin.first + 1 << ", " << positionLoopBegin.second + 1 << "). РЎС‚СЂРѕРёРј С†РёРєР», РЅР°С‡РёРЅР°СЏ СЃ РЅРµРµ" << std::endl;
 	}
 	else
 	{
-		if (full) std::cout << "Эти клетки: ";
+		if (full) std::cout << "Р­С‚Рё РєР»РµС‚РєРё: ";
 		tmpMaxMin = badC_Value[0];
 		if (full) std::cout << C[badC[0].first][badC[0].second] << " (" << badC[0].first + 1 << ", " << badC[0].second + 1 << ")  ";
 		for (int i = 1; i < badC.size(); i++)
@@ -647,7 +647,7 @@ void Transportation<T>::loopBuild()
 				positionLoopBegin = std::make_pair(badC[i].first, badC[i].second);
 			}
 		}
-		if (full) std::cout << std::endl << "Выбираем из них максимальную: " << tmpMaxMin << " (" << positionLoopBegin.first + 1 << ", " << positionLoopBegin.second + 1 << "). Строим цикл, начиная с нее" << std::endl;
+		if (full) std::cout << std::endl << "Р’С‹Р±РёСЂР°РµРј РёР· РЅРёС… РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ: " << tmpMaxMin << " (" << positionLoopBegin.first + 1 << ", " << positionLoopBegin.second + 1 << "). РЎС‚СЂРѕРёРј С†РёРєР», РЅР°С‡РёРЅР°СЏ СЃ РЅРµРµ" << std::endl;
 		tmpMaxMin = C[positionLoopBegin.first][positionLoopBegin.second];
 	}
 
@@ -658,15 +658,15 @@ void Transportation<T>::loopBuild()
 
 	for (int i = 0; i < basisPerem_e.size() - 1; i++)
 	{
-		loopMap[basisPerem_e[i].second.first][basisPerem_e[i].second.second] = 8;	//отмечаем на карте все базисные клетки магическим числом 8, нужно для построения рекурсивного цикла (одно из условий проверяет клетку)
+		loopMap[basisPerem_e[i].second.first][basisPerem_e[i].second.second] = 8;	//РѕС‚РјРµС‡Р°РµРј РЅР° РєР°СЂС‚Рµ РІСЃРµ Р±Р°Р·РёСЃРЅС‹Рµ РєР»РµС‚РєРё РјР°РіРёС‡РµСЃРєРёРј С‡РёСЃР»РѕРј 8, РЅСѓР¶РЅРѕ РґР»СЏ РїРѕСЃС‚СЂРѕРµРЅРёСЏ СЂРµРєСѓСЂСЃРёРІРЅРѕРіРѕ С†РёРєР»Р° (РѕРґРЅРѕ РёР· СѓСЃР»РѕРІРёР№ РїСЂРѕРІРµСЂСЏРµС‚ РєР»РµС‚РєСѓ)
 	}
-	loopMap[basisPerem_e.back().second.first][basisPerem_e.back().second.second] = 5;	//магическое число для первой клетки в цикле - 5
+	loopMap[basisPerem_e.back().second.first][basisPerem_e.back().second.second] = 5;	//РјР°РіРёС‡РµСЃРєРѕРµ С‡РёСЃР»Рѕ РґР»СЏ РїРµСЂРІРѕР№ РєР»РµС‚РєРё РІ С†РёРєР»Рµ - 5
 
 	int maxIter = C.size()*C[0].size();
 	path.clear();
 	pathHorizontal(positionLoopBegin, path, loopMap, maxIter);
 
-	//отмечаем клетки цикла
+	//РѕС‚РјРµС‡Р°РµРј РєР»РµС‚РєРё С†РёРєР»Р°
 	for (int p = 0; p < path.size(); p++)
 	{
 		if (!oddSign) loopMap[path[p].first][path[p].second] = -1;
@@ -674,10 +674,10 @@ void Transportation<T>::loopBuild()
 		oddSign = !oddSign;
 	}
 
-	//выводим массив, где рисуется цикл
+	//РІС‹РІРѕРґРёРј РјР°СЃСЃРёРІ, РіРґРµ СЂРёСЃСѓРµС‚СЃСЏ С†РёРєР»
 	if (full)
 	{
-		std::cout << std::endl << "Полученный цикл:" << std::endl;
+		std::cout << std::endl << "РџРѕР»СѓС‡РµРЅРЅС‹Р№ С†РёРєР»:" << std::endl;
 		for (int i = 0; i < loopMap.size(); i++)
 		{
 			for (int j = 0; j < loopMap[0].size(); j++)
@@ -699,7 +699,7 @@ void Transportation<T>::loopBuild()
 		}
 	}
 
-	//находим минимальный из басисных клеток с минусом
+	//РЅР°С…РѕРґРёРј РјРёРЅРёРјР°Р»СЊРЅС‹Р№ РёР· Р±Р°СЃРёСЃРЅС‹С… РєР»РµС‚РѕРє СЃ РјРёРЅСѓСЃРѕРј
 	for (int m = 0; m < basisPerem_e.size(); m++)
 	{
 		if (basisPerem_e[m].second.first == path[1].first && basisPerem_e[m].second.second == path[1].second)
@@ -729,11 +729,11 @@ void Transportation<T>::loopBuild()
 
 	if (full)
 	{
-		std::cout << std::endl << "Из клеток с [-] выбираем наименьшую, то есть " << tmpMaxMin << " (" << positionFreeCell.first + 1 << ", " << positionFreeCell.second + 1 << ")" << std::endl;
-		std::cout << "Прибавляем " << tmpMaxMin << " к клеткам с [+] и вычитаем из клеток с [-]" << std::endl;
+		std::cout << std::endl << "РР· РєР»РµС‚РѕРє СЃ [-] РІС‹Р±РёСЂР°РµРј РЅР°РёРјРµРЅСЊС€СѓСЋ, С‚Рѕ РµСЃС‚СЊ " << tmpMaxMin << " (" << positionFreeCell.first + 1 << ", " << positionFreeCell.second + 1 << ")" << std::endl;
+		std::cout << "РџСЂРёР±Р°РІР»СЏРµРј " << tmpMaxMin << " Рє РєР»РµС‚РєР°Рј СЃ [+] Рё РІС‹С‡РёС‚Р°РµРј РёР· РєР»РµС‚РѕРє СЃ [-]" << std::endl;
 	}
 
-	//изменяем значение базис-х клеток, попавших в цикл (+/-)
+	//РёР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ Р±Р°Р·РёСЃ-С… РєР»РµС‚РѕРє, РїРѕРїР°РІС€РёС… РІ С†РёРєР» (+/-)
 	for (int i = 0; i < loopMap.size(); i++)
 	{
 		for (int j = 0; j < loopMap[0].size(); j++)
@@ -758,7 +758,7 @@ void Transportation<T>::loopBuild()
 		}
 	}
 
-	//удаляем клетку освободившуюся из базисных
+	//СѓРґР°Р»СЏРµРј РєР»РµС‚РєСѓ РѕСЃРІРѕР±РѕРґРёРІС€СѓСЋСЃСЏ РёР· Р±Р°Р·РёСЃРЅС‹С…
 	for (int b = 0; b < basisPerem_e.size(); b++)
 		if (basisPerem_e[b].second.first == positionFreeCell.first && basisPerem_e[b].second.second == positionFreeCell.second)
 		{
@@ -769,7 +769,7 @@ void Transportation<T>::loopBuild()
 	if (full)
 	{
 		bool printed = false;
-		std::cout << std::endl << "В результате получим новый опорный план:" << std::endl;
+		std::cout << std::endl << "Р’ СЂРµР·СѓР»СЊС‚Р°С‚Рµ РїРѕР»СѓС‡РёРј РЅРѕРІС‹Р№ РѕРїРѕСЂРЅС‹Р№ РїР»Р°РЅ:" << std::endl;
 		for (int i = 0; i < C.size(); i++)
 		{
 			for (int j = 0; j < C[0].size(); j++)
@@ -806,7 +806,7 @@ bool Transportation<T>::pathHorizontal(std::pair<int, int> position, std::vector
 	for (int j = 0; j < loopMap[0].size(); j++)
 	{
 		if (position.second == j) continue;
-		if (loopMap[position.first][j] != 8) continue;		//если клетка не является базисной
+		if (loopMap[position.first][j] != 8) continue;		//РµСЃР»Рё РєР»РµС‚РєР° РЅРµ СЏРІР»СЏРµС‚СЃСЏ Р±Р°Р·РёСЃРЅРѕР№
 		if (pathVertical(std::make_pair(position.first, j), path, loopMap, maxIter))
 		{
 			path.push_back(std::make_pair(position.first, j));
@@ -821,7 +821,7 @@ bool Transportation<T>::pathVertical(std::pair<int, int> position, std::vector<s
 {
 	for (int i = 0; i < loopMap.size(); i++)
 	{
-		if (loopMap[i][position.second] == 5)		//если вернулись в клетку, с которой начали строить цикл
+		if (loopMap[i][position.second] == 5)		//РµСЃР»Рё РІРµСЂРЅСѓР»РёСЃСЊ РІ РєР»РµС‚РєСѓ, СЃ РєРѕС‚РѕСЂРѕР№ РЅР°С‡Р°Р»Рё СЃС‚СЂРѕРёС‚СЊ С†РёРєР»
 		{
 			path.push_back(std::make_pair(i, position.second));
 			return true;
