@@ -6,7 +6,7 @@ In first case is used `<int>`, in second one - `<double>`
 
 Unfortunatly, you have to `#include "Transportation.cpp"` in order for the template class methods to be compiled
 
-##### Example 
+### Example 
 Input:
 ```c++
 std::vector<int> A = { 94,85,36,11 };				//suppliers
