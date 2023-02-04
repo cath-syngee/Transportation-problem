@@ -2,7 +2,7 @@
 Template class provides Transportation problem solution
 
 Suitable for both classic Transportation problem and Transportation problem with fuzzy input data. 
-In first case is used `<int>`, in second one - `<double>`
+In first case `<int>` is used, in second one - `<double>`
 
 Unfortunatly, you have to `#include "Transportation.cpp"` in order for the template class methods to be compiled
 
